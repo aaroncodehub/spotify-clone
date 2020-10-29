@@ -28,7 +28,9 @@
     flex: 0.3;
     color: white;
   }
-
+  &__right * .MuiSlider-root {
+    color: green;
+  }
   &__albumLogo {
     height: 60px;
     width: 60px;
@@ -42,7 +44,7 @@
   }
 
   &__icon {
-      margin: auto 10px;
+    margin: auto 10px;
   }
 
   &__songInfo > h4 {
