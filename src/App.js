@@ -18,11 +18,14 @@ function App() {
     const _token = hash.access_token;
 
     if (_token) {
-      dispatch({type:'SET_TOKEN', payload:_token})
+      dispatch({ type: 'SET_TOKEN', payload: _token })
+      
       spotify.setAccessToken(_token);
+
       spotify.getMe().then((user) => {
         dispatch({type:'SET_USER', payload:user})
       });
+
       spotify.getUserPlaylists('aaronzcg').then((playlists) => {
 
         dispatch({
@@ -30,6 +33,14 @@ function App() {
           payload:playlists,
         });
       })
+
+      spotify.getPlaylist('37i9dQZF1DWSDCcNkUu5tr').then(response => {
+        dispatch({
+          type: 'SET_DISCOVER_WEEKLY',
+          payload: response
+        })
+      })
+
     }
   }, [dispatch]);
 
